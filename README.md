@@ -1,15 +1,65 @@
-# Ansh & Riley Full-Stack Template
+# AXIS Medical Education Landing Page
 
-This is a full-stack template project for Software Composers to create  applications with AI.
+A modern, responsive landing page for AXIS Medical Education, built with Next.js and TypeScript.
 
-## Getting started
-To create a new project, you go to `/paths`, choose from our list of Paths, and then use Cursor's Composer feature to quickly scaffold your project!
+## Features
 
-You can also edit the Path's prompt template to be whatever you like!
+- Clean, professional design matching AXIS branding
+- Responsive layout for all device sizes
+- Interactive modals for activities and booking
+- Animated counter for provider statistics
+- Modern UI components with smooth animations
 
-## Technologies used
-This doesn't really matter, but is useful for the AI to understand more about this project. We are using the following technologies
-- React with Next.js 14 App Router
-- TailwindCSS
-- Firebase Auth, Storage, and Database
-- Multiple AI endpoints including OpenAI, Anthropic, and Replicate using Vercel's AI SDK
+## Getting Started
+
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Technologies Used
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Modern icon library
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/          # React components
+│   │   ├── ActivityModal.tsx
+│   │   ├── BookNowModal.tsx
+│   │   ├── BookActivityModal.tsx
+│   │   ├── AskQuestionModal.tsx
+│   │   └── AnimatedCounter.tsx
+│   ├── globals.css         # Global styles
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+└── ...
+```
+
+## Build and Deploy
+
+To build for production:
+
+```bash
+npm run build
+```
+
+To start the production server:
+
+```bash
+npm start
+```

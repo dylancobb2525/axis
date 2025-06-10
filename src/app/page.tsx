@@ -22,8 +22,13 @@ export default function Home() {
       id: 1,
       title: "Optimizing Perioperative Therapy in Early-Stage NSCLC: A Multidisciplinary Approach",
       category: "EARLY-STAGE NSCLC",
+      specialText: "Activity Includes Mini-Focus Group Discussion",
       code: "AXIS 17488",
-      chairperson: "Heather Wakelee, MD, ASCO",
+      chairperson: "Heather Wakelee, MD, FASCO",
+      institution: "Stanford University and Stanford Cancer Institute",
+      location: "Palo Alto, CA",
+      poweredBy: "AXIS Powered by GLC",
+      supportedBy: "Merck & BMS",
       hasNewBadge: true,
       image: "/activitylogos/cell1.jpg"
     },
@@ -33,6 +38,9 @@ export default function Home() {
       category: "PAROXYSMAL NOCTURNAL HEMOGLOBINURIA ORAL THERAPEUTICS",
       code: "AXIS 14967",
       chairperson: "Carlos M. De Castro, III, MD",
+      institution: "Duke Comprehensive Cancer Center",
+      location: "Durham, NC",
+      supportedBy: "Novartis",
       hasNewBadge: true,
       image: "/activitylogos/cell2.jpg"
     },
@@ -42,6 +50,9 @@ export default function Home() {
       category: "BREAST CANCER WITH TROP2 ADCS",
       code: "AXIS 16178",
       chairperson: "Aditya Bardia, MD, MPH, FASCO",
+      institution: "University of California",
+      location: "Los Angeles, CA",
+      supportedBy: "DSI & AZ",
       hasNewBadge: false,
       image: "/activitylogos/cell3.jpg"
     },
@@ -51,6 +62,9 @@ export default function Home() {
       category: "ULTRA LOW BREAST CANCER",
       code: "AXIS 16169",
       chairperson: "Sara Tolaney, MD, MPH",
+      institution: "Dana-Farber Cancer Institute / Harvard Medical School",
+      location: "Boston, MA",
+      supportedBy: "DSI & AZ",
       hasNewBadge: false,
       image: "/activitylogos/cell4.jpg"
     },
@@ -60,6 +74,9 @@ export default function Home() {
       category: "NOVEL TREATMENTS FOR PH+CML-CP",
       code: "AXIS 15852",
       chairperson: "Jorge Cortes, MD",
+      institution: "Georgia Cancer Center at Augusta University",
+      location: "Augusta, GA",
+      supportedBy: "Novartis",
       hasNewBadge: false,
       image: "/activitylogos/cell5.jpg"
     },
@@ -69,6 +86,9 @@ export default function Home() {
       category: "BISPECIFIC ANTIBODY THERAPY IN R/R FOLLICULAR LYMPHOMA",
       code: "AXIS 15533",
       chairperson: "Tycel Phillips, MD",
+      institution: "City of Hope",
+      location: "Duarte, CA",
+      supportedBy: "Genmab",
       hasNewBadge: false,
       image: "/activitylogos/cell6.jpg"
     },
@@ -78,6 +98,9 @@ export default function Home() {
       category: "CLL/SLL/MCL",
       code: "AXIS 13955",
       chairperson: "Matthew S. Davids, MD",
+      institution: "Harvard Medical School/Dana-Farber Cancer Institute",
+      location: "Boston, MA",
+      supportedBy: "Lilly",
       hasNewBadge: false,
       hasSpecialBadge: "ASH Updates",
       image: "/activitylogos/cell7.jpg"
@@ -88,6 +111,9 @@ export default function Home() {
       category: "HIGH-RISK EARLY BREAST CANCER",
       code: "AXIS 13830",
       chairperson: "Adam Brufsky, MD, PhD",
+      institution: "UPMC Hillman Cancer Center, University of Pittsburgh",
+      location: "Pittsburgh, PA",
+      supportedBy: "Lilly",
       hasNewBadge: false,
       hasSpecialBadge: "SABCS Updates",
       image: "/activitylogos/cell8.jpg"
@@ -98,6 +124,9 @@ export default function Home() {
       category: "EARLY STAGE NSCLC",
       code: "AXIS 13434",
       chairperson: "Mark A. Socinski, MD",
+      institution: "AdventHealth Cancer Institute",
+      location: "Orlando, FL",
+      supportedBy: "Genentech",
       hasNewBadge: false,
       image: "/activitylogos/cell9.jpg"
     }
@@ -221,22 +250,48 @@ export default function Home() {
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
-                    {activity.category}
+                    PLACE OF PRACTICE GRAND ROUNDS
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-3 flex-grow">
                     {activity.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {activity.chairperson} – Chairperson
+                  
+                  {activity.specialText && (
+                    <p className="text-sm text-orange-500 italic mb-3">
+                      {activity.specialText}
+                    </p>
+                  )}
+                  
+                  <p className="text-sm text-blue-600 font-medium mb-1">
+                    {activity.chairperson} (Chairperson)
                   </p>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-sm text-gray-500">{activity.code}</span>
-                    <button 
-                      onClick={() => handleOpenModal(activity.id)}
-                      className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors"
-                    >
-                      More Info
-                    </button>
+                  <p className="text-sm text-gray-700 mb-1">
+                    {activity.institution}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-4">
+                    {activity.location}
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="text-xs text-gray-600">
+                        {activity.poweredBy && (
+                          <div className="mb-1">{activity.poweredBy}</div>
+                        )}
+                        <div>Supported by: {activity.supportedBy}</div>
+                      </div>
+                      <div className="text-right">
+                        <button 
+                          onClick={() => handleOpenModal(activity.id)}
+                          className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors mb-2"
+                        >
+                          More Info
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex justify-start">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">{activity.code}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -266,22 +321,48 @@ export default function Home() {
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
-                    {activity.category}
+                    PLACE OF PRACTICE GRAND ROUNDS
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-3 flex-grow">
                     {activity.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {activity.chairperson} – Chairperson
+                  
+                  {activity.specialText && (
+                    <p className="text-sm text-orange-500 italic mb-3">
+                      {activity.specialText}
+                    </p>
+                  )}
+                  
+                  <p className="text-sm text-blue-600 font-medium mb-1">
+                    {activity.chairperson} (Chairperson)
                   </p>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-sm text-gray-500">{activity.code}</span>
-                    <button 
-                      onClick={() => handleOpenModal(activity.id)}
-                      className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors"
-                    >
-                      More Info
-                    </button>
+                  <p className="text-sm text-gray-700 mb-1">
+                    {activity.institution}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-4">
+                    {activity.location}
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="text-xs text-gray-600">
+                        {activity.poweredBy && (
+                          <div className="mb-1">{activity.poweredBy}</div>
+                        )}
+                        <div>Supported by: {activity.supportedBy}</div>
+                      </div>
+                      <div className="text-right">
+                        <button 
+                          onClick={() => handleOpenModal(activity.id)}
+                          className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors mb-2"
+                        >
+                          More Info
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex justify-start">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">{activity.code}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -311,22 +392,48 @@ export default function Home() {
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
-                    {activity.category}
+                    PLACE OF PRACTICE GRAND ROUNDS
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-3 flex-grow">
                     {activity.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {activity.chairperson} – Chairperson
+                  
+                  {activity.specialText && (
+                    <p className="text-sm text-orange-500 italic mb-3">
+                      {activity.specialText}
+                    </p>
+                  )}
+                  
+                  <p className="text-sm text-blue-600 font-medium mb-1">
+                    {activity.chairperson} (Chairperson)
                   </p>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-sm text-gray-500">{activity.code}</span>
-                    <button 
-                      onClick={() => handleOpenModal(activity.id)}
-                      className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors"
-                    >
-                      More Info
-                    </button>
+                  <p className="text-sm text-gray-700 mb-1">
+                    {activity.institution}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-4">
+                    {activity.location}
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="text-xs text-gray-600">
+                        {activity.poweredBy && (
+                          <div className="mb-1">{activity.poweredBy}</div>
+                        )}
+                        <div>Supported by: {activity.supportedBy}</div>
+                      </div>
+                      <div className="text-right">
+                        <button 
+                          onClick={() => handleOpenModal(activity.id)}
+                          className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors mb-2"
+                        >
+                          More Info
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex justify-start">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">{activity.code}</span>
+                    </div>
                   </div>
                 </div>
               </div>

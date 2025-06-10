@@ -7,6 +7,7 @@ import ActivityModal from "./components/ActivityModal";
 import BookNowModal from "./components/BookNowModal";
 import BookActivityModal from "./components/BookActivityModal";
 import AskQuestionModal from "./components/AskQuestionModal";
+import PasswordProtection from "./components/PasswordProtection";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<number | null>(null);
@@ -19,103 +20,86 @@ export default function Home() {
   const activities = [
     {
       id: 1,
-      title: "A Changing Paradigm: Evaluating the Use of FLT3 Inhibitors in Patients with AML",
-      category: "ACUTE MYELOID LEUKEMIA",
-      code: "AXIS 12075",
-      chairperson: "Harry P. Erba, MD, PhD",
+      title: "Optimizing Perioperative Therapy in Early-Stage NSCLC: A Multidisciplinary Approach",
+      category: "EARLY-STAGE NSCLC",
+      code: "AXIS 17488",
+      chairperson: "Heather Wakelee, MD, ASCO",
       hasNewBadge: true,
       image: "/activitylogos/cell1.jpg"
     },
     {
       id: 2,
-      title: "Improving Outcomes and Addressing Racial Disparities in Patients with HR+ / HER2- Early Breast Cancer",
-      category: "CLL/SLL/MCL",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Enhancing Diagnosis, Treatment, and Outcomes in Paroxysmal Nocturnal Hemoglobinuria with Novel Oral Therapeutics",
+      category: "PAROXYSMAL NOCTURNAL HEMOGLOBINURIA ORAL THERAPEUTICS",
+      code: "AXIS 14967",
+      chairperson: "Carlos M. De Castro, III, MD",
       hasNewBadge: true,
       image: "/activitylogos/cell2.jpg"
     },
     {
       id: 3,
-      title: "Improving the Road to Remission with CAR T-Cell Therapies in Large B-Cell Lymphoma: Considerations for Community Practice Centers",
-      category: "CAR T-CELL LYMPHOMA",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Improving HR+/HER2- Breast Cancer Outcomes with TROP2 Antibody-Drug Conjugates",
+      category: "BREAST CANCER WITH TROP2 ADCS",
+      code: "AXIS 16178",
+      chairperson: "Aditya Bardia, MD, MPH, FASCO",
       hasNewBadge: false,
       image: "/activitylogos/cell3.jpg"
     },
     {
       id: 4,
-      title: "CD20 X CD3 Bispecifics—Redefining Treatment for Patients with R/R DLBCL/ LBCL in the Community Setting",
-      category: "ACUTE MYELOID LEUKEMIA",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Redefining Treatment Across the Spectrum of HR+ HER2-expressing Metastatic Breast Cancer",
+      category: "ULTRA LOW BREAST CANCER",
+      code: "AXIS 16169",
+      chairperson: "Sara Tolaney, MD, MPH",
       hasNewBadge: false,
       image: "/activitylogos/cell4.jpg"
     },
     {
       id: 5,
-      title: "Attacking BTK Inhibitor Resistance in Relapsed/Refractory B-Cell Cancers: Implementing Nursing Care Plans",
-      category: "B-CELL MALIGNANCIES",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Novel Treatments for Newly Diagnosed Ph+CML-CP: Striking the Balance of Treatment with Patient Goals and QoL",
+      category: "NOVEL TREATMENTS FOR PH+CML-CP",
+      code: "AXIS 15852",
+      chairperson: "Jorge Cortes, MD",
       hasNewBadge: false,
       image: "/activitylogos/cell5.jpg"
     },
     {
       id: 6,
-      title: "Improving Interprofessional Management and Clinical Outcomes with PARP Inhibitors for Advanced Ovarian Cancer: Cytogenetic Testing a...",
-      category: "OVARIAN CANCER",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "The Evolving Role of Bispecific Antibody Therapy in Relapsed or Refractory Follicular Lymphoma",
+      category: "BISPECIFIC ANTIBODY THERAPY IN R/R FOLLICULAR LYMPHOMA",
+      code: "AXIS 15533",
+      chairperson: "Tycel Phillips, MD",
       hasNewBadge: false,
       image: "/activitylogos/cell6.jpg"
     },
     {
       id: 7,
-      title: "Practice-Changing Strategies in Community Care Settings for Patients with CLL/SLL and MCL",
+      title: "Practice Changing Strategies in Community Care Settings for Patients with CLL/SLL/MCL",
       category: "CLL/SLL/MCL",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      code: "AXIS 13955",
+      chairperson: "Matthew S. Davids, MD",
       hasNewBadge: false,
+      hasSpecialBadge: "ASH Updates",
       image: "/activitylogos/cell7.jpg"
     },
     {
       id: 8,
-      title: "The Evolving Landscape in Myelofibrosis: A Focus on JAK Inhibitors",
-      category: "MYELOFIBROSIS",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Community Practice Perspectives: Exploring Treatment Intensification with CDK 4/6i in Adjuvant HR+, HER2-, High-Risk Early Breast Cancer",
+      category: "HIGH-RISK EARLY BREAST CANCER",
+      code: "AXIS 13830",
+      chairperson: "Adam Brufsky, MD, PhD",
       hasNewBadge: false,
+      hasSpecialBadge: "SABCS Updates",
       image: "/activitylogos/cell8.jpg"
     },
     {
       id: 9,
-      title: "Expert Answers to Common Questions for Improving the Road to Remission with CAR T-Cell Therapies in Large B-Cell Lymphoma: Considerations for Co...",
-      category: "B-CELL CANCERS",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
+      title: "Advancing ALK Inhibition into Early-Stage NSCLC: Integrating Biomarker-Driven Therapies to Reduce Recurrence Risk Post Resection",
+      category: "EARLY STAGE NSCLC",
+      code: "AXIS 13434",
+      chairperson: "Mark A. Socinski, MD",
       hasNewBadge: false,
       image: "/activitylogos/cell9.jpg"
-    },
-    {
-      id: 10,
-      title: "CD20 X CD3 Bispecifics-Redefining Treatment for Patients with R/R DLBCL/ LBCL in the Community Setting",
-      category: "B-CELL MALIGNANCIES",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
-      hasNewBadge: false,
-      image: "/activitylogos/cell10.jpg"
-    },
-    {
-      id: 11,
-      title: "Community Practice Perspectives: Exploring Treatment Intensification with CDK 4/6i in Adjuvant HR+, HER2-, High-Risk Early Breast Cancer",
-      category: "HIGH-RISK EARLY BREAST CANCER",
-      code: "AXIS 13750",
-      chairperson: "Helena Yu, MD",
-      hasNewBadge: false,
-      hasExpiresSoon: true,
-      image: "/activitylogos/cell11.jpg"
     }
   ];
 
@@ -161,7 +145,8 @@ export default function Home() {
     });
   };
   return (
-    <div className="min-h-screen bg-white">
+    <PasswordProtection>
+      <div className="min-h-screen bg-white">
       {/* Header/Navigation */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow-sm px-6 py-4 z-40">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -228,6 +213,11 @@ export default function Home() {
                       NEW
                     </div>
                   )}
+                  {activity.hasSpecialBadge && (
+                    <div className="absolute top-4 left-4 bg-gray-600 text-white px-2 py-1 text-xs rounded">
+                      {activity.hasSpecialBadge}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
@@ -257,11 +247,23 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {activities.slice(3, 6).map((activity) => (
               <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
-                <img 
-                  src={activity.image} 
-                  alt={activity.title}
-                  className="h-48 w-full object-cover"
-                />
+                <div className="relative">
+                  <img 
+                    src={activity.image} 
+                    alt={activity.title}
+                    className="h-48 w-full object-cover"
+                  />
+                  {activity.hasNewBadge && (
+                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-2 py-1 text-xs rounded">
+                      NEW
+                    </div>
+                  )}
+                  {activity.hasSpecialBadge && (
+                    <div className="absolute top-4 left-4 bg-gray-600 text-white px-2 py-1 text-xs rounded">
+                      {activity.hasSpecialBadge}
+                    </div>
+                  )}
+                </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
                     {activity.category}
@@ -290,48 +292,20 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {activities.slice(6, 9).map((activity) => (
               <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
-                <img 
-                  src={activity.image} 
-                  alt={activity.title}
-                  className="h-48 w-full object-cover"
-                />
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
-                    {activity.category}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3 flex-grow">
-                    {activity.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    {activity.chairperson} – Chairperson
-                  </p>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-sm text-gray-500">{activity.code}</span>
-                    <button 
-                      onClick={() => handleOpenModal(activity.id)}
-                      className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 py-2 rounded-full text-sm transition-colors"
-                    >
-                      More Info
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Fourth Row of Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {activities.slice(9, 11).map((activity) => (
-              <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
                 <div className="relative">
                   <img 
                     src={activity.image} 
                     alt={activity.title}
                     className="h-48 w-full object-cover"
                   />
-                  {activity.hasExpiresSoon && (
-                    <div className="absolute top-4 left-4 bg-gray-800 text-white px-2 py-1 text-xs rounded">
-                      EXPIRES SOON
+                  {activity.hasNewBadge && (
+                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-2 py-1 text-xs rounded">
+                      NEW
+                    </div>
+                  )}
+                  {activity.hasSpecialBadge && (
+                    <div className="absolute top-4 left-4 bg-gray-600 text-white px-2 py-1 text-xs rounded">
+                      {activity.hasSpecialBadge}
                     </div>
                   )}
                 </div>
@@ -572,6 +546,7 @@ export default function Home() {
           </span>
         </button>
       )}
-    </div>
+      </div>
+    </PasswordProtection>
   );
 }

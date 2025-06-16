@@ -205,8 +205,8 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Advance Your Institution with<br />Place of Practice Grand Rounds
           </h1>
-          <p className="text-lg md:text-xl mb-12 opacity-90">
-            AXIS Medical Education provides in-person, remote, and flexible learning opportunities to engage health care providers with educational offerings on timely topics. Book certified continuing medical education for the interprofessional care team.
+          <p className="text-base md:text-lg mb-12 opacity-90">
+            AXIS Medical Education delivers high-impact, flexible learning opportunities designed to elevate clinical teams through timely, evidence-based education. Whether in-person or remote, these certified continuing medical education sessions bring the learning directly to where care happens.
           </p>
         </div>
       </section>
@@ -451,8 +451,10 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Why AXIS Place of Practice Grand Rounds?
               </h2>
-              <p className="text-gray-600 leading-relaxed">
-                The Place of Practice Grand Rounds Series is designed to provide learners with the opportunity to engage in interdisciplinary team-based education with their peers and interact with nationally recognized experts. Grand rounds, held in the convenience of real-world clinical practice, provide a forum for the interprofessional care team to learn how to contextualize emerging evidence and accelerate research into community-based clinical practice. Place of Practice grand rounds help clinical care teams improve their readiness for adoption in real-world clinical practice.
+              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                The Place of Practice Grand Rounds Series brings clinical teams together for interdisciplinary learning grounded in everyday practice. Participants engage with nationally recognized experts to explore emerging clinical evidence and apply it directly within their care settings.
+                <br /><br />
+                By connecting research to real-world workflows, these sessions help teams accelerate the adoption of innovations and best practices. Delivered on-site or virtually, Place of Practice Grand Rounds foster collaboration, spark meaningful dialogue, and equip care teams to deliver high-quality, evidence-informed care.
               </p>
             </div>
             <div className="relative">

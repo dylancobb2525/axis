@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 interface AskQuestionModalProps {
   isOpen: boolean;
@@ -9,94 +9,9 @@ interface AskQuestionModalProps {
 }
 
 export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQuestionModalProps) {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    title: '',
-    hospital: '',
-    city: '',
-    state: '',
-    eventIds: activityCode || '',
-    message: ''
-  });
-
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [validationError, setValidationError] = useState('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const validateEmail = (email: string) => {
-    return email.includes('@') && email.trim() !== '';
-  };
-
-  const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    setValidationError('');
-
-    // Check required fields (message is required for questions)
-    const requiredFields = [
-      { field: 'firstName', label: 'First Name' },
-      { field: 'lastName', label: 'Last Name' },
-      { field: 'email', label: 'Email' },
-      { field: 'title', label: 'Title/Occupation' },
-      { field: 'hospital', label: 'Hospital/Affiliation' },
-      { field: 'city', label: 'City' },
-      { field: 'state', label: 'State' },
-      { field: 'eventIds', label: 'Event ID(s)' },
-      { field: 'message', label: 'Message' }
-    ];
-
-    for (const { field, label } of requiredFields) {
-      if (!formData[field as keyof typeof formData].trim()) {
-        setValidationError(`Please fill out the ${label} field.`);
-        return;
-      }
-    }
-
-    // Validate email format
-    if (!validateEmail(formData.email)) {
-      setValidationError('Please enter a valid email address (must contain @).');
-      return;
-    }
-
-    // Show success message
-    setShowSuccess(true);
-  };
-
-  const isFormValid = () => {
-    return formData.firstName.trim() && 
-           formData.lastName.trim() && 
-           formData.email.trim() && 
-           validateEmail(formData.email) &&
-           formData.title.trim() && 
-           formData.hospital.trim() && 
-           formData.city.trim() && 
-           formData.state.trim() && 
-           formData.eventIds.trim() && 
-           formData.message.trim();
-  };
+  const [state, handleSubmit] = useForm("xdkzzvop");
 
   const handleClose = () => {
-    setShowSuccess(false);
-    setValidationError('');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      title: '',
-      hospital: '',
-      city: '',
-      state: '',
-      eventIds: activityCode || '',
-      message: ''
-    });
     onClose();
   };
 
@@ -117,7 +32,7 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
         </div>
 
         {/* Success Message */}
-        {showSuccess ? (
+        {state.succeeded ? (
           <div className="flex-1 flex items-center justify-center p-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -126,7 +41,13 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Question Sent!</h3>
-              <p className="text-sm text-gray-500">This is just an example - no one actually received this message.</p>
+              <p className="text-sm text-gray-500">Thank you! Your question has been sent successfully.</p>
+              <button
+                onClick={handleClose}
+                className="mt-4 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
         ) : (
@@ -138,10 +59,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                 <h3 className="text-lg font-medium text-gray-800 mb-4">Contact Info</h3>
               </div>
 
-              {/* Validation Error */}
-              {validationError && (
+              {/* Formspree Errors */}
+              {state.errors && Object.keys(state.errors).length > 0 && (
                 <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                  {validationError}
+                  There was an error submitting the form. Please try again.
                 </div>
               )}
 
@@ -155,11 +76,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                     type="text"
                     name="firstName"
                     placeholder="First"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
+                  <ValidationError prefix="First Name" field="firstName" errors={state.errors} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -169,11 +89,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                     type="text"
                     name="lastName"
                     placeholder="Last"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
+                  <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
                 </div>
               </div>
 
@@ -186,11 +105,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                   type="email"
                   name="email"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
 
               {/* Title/Occupation */}
@@ -202,11 +120,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                   type="text"
                   name="title"
                   placeholder="Title/Occupation"
-                  value={formData.title}
-                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
+                <ValidationError prefix="Title" field="title" errors={state.errors} />
               </div>
 
               {/* Hospital/Affiliation */}
@@ -218,11 +135,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                   type="text"
                   name="hospital"
                   placeholder="Hospital/Affiliation"
-                  value={formData.hospital}
-                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
+                <ValidationError prefix="Hospital" field="hospital" errors={state.errors} />
               </div>
 
               {/* City and State */}
@@ -235,11 +151,10 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                     type="text"
                     name="city"
                     placeholder="City"
-                    value={formData.city}
-                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
+                  <ValidationError prefix="City" field="city" errors={state.errors} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -249,79 +164,59 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                     type="text"
                     name="state"
                     placeholder="State"
-                    value={formData.state}
-                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
+                  <ValidationError prefix="State" field="state" errors={state.errors} />
                 </div>
               </div>
 
-              {/* Event ID(s) */}
+              {/* Event IDs */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
                   Event ID(s) <span className="text-red-500">*</span>
                 </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="eventIds"
-                    value={formData.eventIds}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                    required
-                  />
-                  {activityCode && !formData.eventIds && (
-                    <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                      <span className="text-red-500 text-sm">Autofill Event ID</span>
-                    </div>
-                  )}
-                </div>
+                <input
+                  type="text"
+                  name="eventIds"
+                  placeholder="Event ID(s)"
+                  defaultValue={activityCode || ''}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  required
+                />
+                <ValidationError prefix="Event IDs" field="eventIds" errors={state.errors} />
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message <span className="text-red-500">*</span>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Your Question <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
-                  placeholder="Please type a brief question for our live event coordinator."
-                  value={formData.message}
-                  onChange={handleInputChange}
+                  placeholder="Please type your question here..."
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
                   required
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${
+                    !state.submitting
+                      ? 'bg-orange-500 hover:bg-orange-600 text-white' 
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
+                >
+                  {state.submitting ? 'Submitting...' : 'Submit Question'}
+                </button>
               </div>
             </form>
-          </div>
-        )}
-
-        {/* Fixed Bottom Buttons */}
-        {!showSuccess && (
-          <div className="bg-white border-t shadow-lg rounded-b-lg">
-            <div className="flex gap-4 justify-center py-4 px-6">
-              <button
-                type="button"
-                onClick={handleClose}
-                className="flex-1 border border-orange-500 text-orange-500 hover:bg-orange-50 px-6 py-3 rounded-full font-medium transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSubmit()}
-                disabled={!isFormValid()}
-                className={`flex-1 px-6 py-3 rounded-full font-medium transition-colors ${
-                  isFormValid()
-                    ? 'bg-orange-500 text-white hover:bg-orange-600'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
-              >
-                Submit Question
-              </button>
-            </div>
           </div>
         )}
       </div>

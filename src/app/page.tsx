@@ -8,6 +8,7 @@ import BookNowModal from "./components/BookNowModal";
 import BookActivityModal from "./components/BookActivityModal";
 import AskQuestionModal from "./components/AskQuestionModal";
 import PasswordProtection from "./components/PasswordProtection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<number | null>(null);
@@ -593,21 +594,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-8 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center space-x-8 mb-6">
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">PRIVACY</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">TERMS</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">COOKIES</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">ABOUT</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">ADVOCACY PARTNERS</Link>
-            <Link href="#" className="text-gray-600 hover:text-gray-800 transition-colors">CONTACT US</Link>
-          </div>
-          <div className="text-center text-gray-500 text-sm">
-            © AXIS Medical Education 2024. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Activity Modal */}
       {openModal && (

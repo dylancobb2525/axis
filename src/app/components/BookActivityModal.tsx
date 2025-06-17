@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 interface BookActivityModalProps {
@@ -42,13 +41,7 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Booking Sent!</h3>
-              <p className="text-sm text-gray-500">Thank you! Your booking request has been sent successfully.</p>
-              <button
-                onClick={handleClose}
-                className="mt-4 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
-              >
-                Close
-              </button>
+              <p className="text-sm text-gray-500">Thank you for your booking request. We'll get back to you soon!</p>
             </div>
           </div>
         ) : (
@@ -59,13 +52,6 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
               <div>
                 <h3 className="text-lg font-medium text-gray-800 mb-4">Contact Info</h3>
               </div>
-
-              {/* Formspree Errors */}
-              {state.errors && Object.keys(state.errors).length > 0 && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                  There was an error submitting the form. Please try again.
-                </div>
-              )}
 
               {/* Name Fields */}
               <div className="grid grid-cols-2 gap-4">
@@ -80,7 +66,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
-                  <ValidationError prefix="First Name" field="firstName" errors={state.errors} />
+                  <ValidationError 
+                    prefix="First Name" 
+                    field="firstName"
+                    errors={state.errors}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -93,7 +83,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
-                  <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
+                  <ValidationError 
+                    prefix="Last Name" 
+                    field="lastName"
+                    errors={state.errors}
+                  />
                 </div>
               </div>
 
@@ -109,7 +103,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                <ValidationError 
+                  prefix="Email" 
+                  field="email"
+                  errors={state.errors}
+                />
               </div>
 
               {/* Phone */}
@@ -124,7 +122,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
-                <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                <ValidationError 
+                  prefix="Phone" 
+                  field="phone"
+                  errors={state.errors}
+                />
               </div>
 
               {/* Title/Occupation */}
@@ -135,11 +137,15 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                 <input
                   type="text"
                   name="title"
-                  placeholder="Title/Occupation"
+                  placeholder="e.g. Physician, Nurse, etc."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
-                <ValidationError prefix="Title" field="title" errors={state.errors} />
+                <ValidationError 
+                  prefix="Title" 
+                  field="title"
+                  errors={state.errors}
+                />
               </div>
 
               {/* Hospital/Affiliation */}
@@ -150,14 +156,18 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                 <input
                   type="text"
                   name="hospital"
-                  placeholder="Hospital/Affiliation"
+                  placeholder="Hospital or Organization"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
-                <ValidationError prefix="Hospital" field="hospital" errors={state.errors} />
+                <ValidationError 
+                  prefix="Hospital" 
+                  field="hospital"
+                  errors={state.errors}
+                />
               </div>
 
-              {/* City and State */}
+              {/* Location */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -170,7 +180,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
-                  <ValidationError prefix="City" field="city" errors={state.errors} />
+                  <ValidationError 
+                    prefix="City" 
+                    field="city"
+                    errors={state.errors}
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -183,7 +197,11 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     required
                   />
-                  <ValidationError prefix="State" field="state" errors={state.errors} />
+                  <ValidationError 
+                    prefix="State" 
+                    field="state"
+                    errors={state.errors}
+                  />
                 </div>
               </div>
 
@@ -200,35 +218,45 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
-                <ValidationError prefix="Event IDs" field="eventIds" errors={state.errors} />
+                <ValidationError 
+                  prefix="Event IDs" 
+                  field="eventIds"
+                  errors={state.errors}
+                />
               </div>
 
               {/* Message */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Additional Message (Optional)
+                  Additional Information
                 </label>
                 <textarea
                   name="message"
-                  placeholder="Any additional information or questions..."
+                  placeholder="Any additional information or special requests..."
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
                 />
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
+                <ValidationError 
+                  prefix="Message" 
+                  field="message"
+                  errors={state.errors}
+                />
               </div>
 
-              {/* Submit Button */}
-              <div className="pt-4">
+              <div className="flex gap-3 pt-4">
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
                 <button
                   type="submit"
                   disabled={state.submitting}
-                  className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${
-                    !state.submitting
-                      ? 'bg-orange-500 hover:bg-orange-600 text-white' 
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  }`}
+                  className="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50"
                 >
-                  {state.submitting ? 'Submitting...' : 'Submit Booking Request'}
+                  {state.submitting ? 'Sending...' : 'Book Activity'}
                 </button>
               </div>
             </form>

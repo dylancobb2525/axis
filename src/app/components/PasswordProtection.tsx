@@ -13,30 +13,52 @@ export default function PasswordProtection({ children }: PasswordProtectionProps
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-
-  const CORRECT_PASSWORD = 'ushaxisdemo$';
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // No localStorage check - always require password
+    // Check if user was previously authenticated (optional)
+    const wasAuthenticated = sessionStorage.getItem('axis-authenticated');
+    if (wasAuthenticated === 'true') {
+      setIsAuthenticated(true);
+    }
     setIsLoading(false);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setIsSubmitting(true);
 
-    if (password === CORRECT_PASSWORD) {
-      setIsAuthenticated(true);
-      // No localStorage - authentication only lasts for current session
-    } else {
-      setError('Incorrect password. Please try again.');
-      setPassword('');
+    try {
+      const response = await fetch('/api/verify-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsAuthenticated(true);
+        // Store authentication state for current session
+        sessionStorage.setItem('axis-authenticated', 'true');
+      } else {
+        setError('Incorrect password. Please try again.');
+        setPassword('');
+      }
+    } catch (error) {
+      setError('Connection error. Please try again.');
+      console.error('Password verification error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    // No localStorage to clear
+    sessionStorage.removeItem('axis-authenticated');
     setPassword('');
   };
 
@@ -75,11 +97,13 @@ export default function PasswordProtection({ children }: PasswordProtectionProps
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-colors text-gray-900 bg-white"
                   placeholder="Enter password"
                   required
+                  disabled={isSubmitting}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  disabled={isSubmitting}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
@@ -94,9 +118,10 @@ export default function PasswordProtection({ children }: PasswordProtectionProps
 
             <button
               type="submit"
-              className="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-teal-700 transition-colors focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 outline-none"
+              disabled={isSubmitting}
+              className="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-teal-700 transition-colors focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Access Site
+              {isSubmitting ? 'Verifying...' : 'Access Site'}
             </button>
           </form>
 

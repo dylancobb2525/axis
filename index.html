@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIS Medical Education</title>
+    <link rel="icon" href="/axis.png" type="image/png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Modal backdrop */
+        .modal-backdrop {
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Hide scrollbar for overflow areas */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Password protection overlay */
+        .password-overlay {
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        }
+        
+        /* Button hover effects */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Password Protection Modal -->
+    <div id="passwordModal" class="fixed inset-0 password-overlay flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <img src="/axis.png" alt="AXIS Medical Education" class="h-20 mx-auto mb-6">
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">AXIS Medical Education</h1>
+                <p class="text-gray-600">Please enter the password to access the site</p>
+            </div>
+            
+            <form id="passwordForm" class="space-y-6">
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-colors text-gray-900 bg-white"
+                            placeholder="Enter password"
+                            required
+                        >
+                        <button 
+                            type="button" 
+                            id="togglePassword"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        >
+                            👁️
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="passwordError" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm"></div>
+                
+                <button 
+                    type="submit"
+                    class="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-teal-700 transition-colors focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 outline-none"
+                >
+                    Access Site
+                </button>
+            </form>
+            
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>© 2024 AXIS Medical Education</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="mainContent" class="hidden min-h-screen bg-white">
+        
+        <!-- Header/Navigation -->
+        <header class="fixed top-0 left-0 right-0 bg-white shadow-sm px-6 py-4 z-40">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/axis.png" alt="AXIS Medical Education" class="h-12">
+                </div>
+                <button 
+                    id="bookNowBtn"
+                    class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-colors btn-primary"
+                >
+                    BOOK NOW
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="bg-blue-900 text-white py-20 px-6 relative overflow-hidden pt-32">
+            <div 
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+                style="background-image: url('/cells.jpg')"
+            ></div>
+            <div class="relative max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">
+                    AXIS Ground Rounds
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100 fade-in">
+                    Advanced Medical Education Programs
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <button 
+                        id="bookNowHeroBtn"
+                        class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium transition-colors btn-primary"
+                    >
+                        BOOK NOW
+                    </button>
+                    <button 
+                        id="exploreActivitiesBtn"
+                        class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-full font-medium transition-colors btn-primary"
+                    >
+                        Explore Activities
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="py-16 px-6 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="fade-in">
+                        <div class="text-4xl font-bold text-blue-900" data-counter="150">0</div>
+                        <div class="text-gray-600 mt-2">Programs Available</div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl font-bold text-blue-900" data-counter="50000">0</div>
+                        <div class="text-gray-600 mt-2">Healthcare Professionals Educated</div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="text-4xl font-bold text-blue-900" data-counter="95">0</div>
+                        <div class="text-gray-600 mt-2">% Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Grid -->
+        <section id="activities" class="py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Current Activities</h2>
+                <div id="activitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Activities will be dynamically generated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="/axis.png" alt="AXIS Medical Education" class="h-12 mb-4">
+                    <p class="text-gray-300 mb-4">
+                        Advancing medical education through innovative programs and comprehensive learning experiences.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><button class="hover:text-white transition-colors">About Us</button></li>
+                        <li><button class="hover:text-white transition-colors">Activities</button></li>
+                        <li><button class="hover:text-white transition-colors">Contact</button></li>
+                        <li><button class="hover:text-white transition-colors">Privacy Policy</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <div class="text-gray-300 space-y-2">
+                        <p>📧 info@axismed.edu</p>
+                        <p>📞 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-700 text-center text-gray-300">
+                <p>&copy; 2024 AXIS Medical Education. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button 
+            id="backToTopBtn"
+            class="fixed bottom-6 right-6 bg-blue-900 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition-colors hidden"
+        >
+            ↑
+        </button>
+
+        <!-- Logout Button (Development) -->
+        <button 
+            id="logoutBtn"
+            class="fixed bottom-4 right-4 bg-gray-800 text-white px-3 py-1 rounded text-xs opacity-50 hover:opacity-100 transition-opacity"
+            style="z-index: 9999;"
+        >
+            Logout
+        </button>
+    </div>
+
+    <!-- Activity Modal -->
+    <div id="activityModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 modal-backdrop">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto scrollbar-hide">
+            <div id="activityModalContent">
+                <!-- Content will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Now Modal -->
+    <div id="bookNowModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 modal-backdrop">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] flex flex-col relative">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Book Now</h2>
+                <button id="closeBookNowModal" class="text-gray-400 hover:text-gray-600 text-2xl">×</button>
+            </div>
+            <div class="flex-1 overflow-y-auto scrollbar-hide">
+                <div class="p-6 space-y-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">Contact Info</h3>
+                    <form id="bookNowForm">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="First Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="Last Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="tel" placeholder="Phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Title/Occupation" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Hospital or Organization" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="City" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="State" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="text" placeholder="Event ID(s)" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <textarea placeholder="Additional Information..." rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none mb-4"></textarea>
+                        <div class="flex gap-3 pt-4">
+                            <button type="button" id="cancelBookNow" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
+                            <button type="submit" class="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Activity Modal -->
+    <div id="bookActivityModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 modal-backdrop">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] flex flex-col relative">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Book This Activity</h2>
+                <button id="closeBookActivityModal" class="text-gray-400 hover:text-gray-600 text-2xl">×</button>
+            </div>
+            <div class="flex-1 overflow-y-auto scrollbar-hide">
+                <div class="p-6 space-y-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">Contact Info</h3>
+                    <form id="bookActivityForm">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="First Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="Last Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="tel" placeholder="Phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Title/Occupation" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Hospital or Organization" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="City" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="State" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="text" id="activityEventId" placeholder="Event ID(s)" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <textarea placeholder="Additional Information..." rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none mb-4"></textarea>
+                        <div class="flex gap-3 pt-4">
+                            <button type="button" id="cancelBookActivity" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
+                            <button type="submit" class="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">Book Activity</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ask Question Modal -->
+    <div id="askQuestionModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 modal-backdrop">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-[90vh] flex flex-col relative">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Ask A Question</h2>
+                <button id="closeAskQuestionModal" class="text-gray-400 hover:text-gray-600 text-2xl">×</button>
+            </div>
+            <div class="flex-1 overflow-y-auto scrollbar-hide">
+                <div class="p-6 space-y-4">
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">Contact Info</h3>
+                    <form id="askQuestionForm">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="First Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="Last Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Title/Occupation" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <input type="text" placeholder="Hospital or Organization" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <input type="text" placeholder="City" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                            <input type="text" placeholder="State" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                        </div>
+                        <input type="text" id="questionEventId" placeholder="Event ID(s)" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" required>
+                        <textarea placeholder="Please type your question here..." rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none mb-4" required></textarea>
+                        <div class="flex gap-3 pt-4">
+                            <button type="button" id="cancelAskQuestion" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
+                            <button type="submit" class="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">Send Question</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -454,7 +454,7 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                 The Place of Practice Grand Rounds Series brings clinical teams together for interdisciplinary learning grounded in everyday practice. Participants engage with nationally recognized experts to explore emerging clinical evidence and apply it directly within their care settings.
                 <br /><br />
-                By connecting research to real-world workflows, these sessions help teams accelerate the adoption of innovations and best practices. Delivered on-site or virtually, Place of Practice Grand Rounds foster collaboration, spark meaningful dialogue, and equip care teams to deliver high-quality, evidence-informed care.
+                By connecting research to real-world workflows, these sessions help teams accelerate the adoption of innovations and best practices. Delivered on-site or virtually, Place of Practice Grand Rounds foster collaboration, spark meaningful dialogue, and equip teams to deliver high-quality, evidence-informed care.
               </p>
             </div>
             <div className="relative">
@@ -524,7 +524,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                AXIS IS a Jointly Accredited Provider
+                AXIS Is a Jointly Accredited Provider
               </h2>
               <p className="text-gray-600 mb-6">
                 As a Joint Accreditation provider, AXIS promotes interprofessional continuing education (IPCE) activities specifically designed to improve interprofessional collaborative practice (IPCP) in health care delivery.

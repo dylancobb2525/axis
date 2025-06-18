@@ -90,11 +90,39 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
               <div className="mt-4 text-gray-600 space-y-4">
                 {activity.id === 1 ? (
                   <div>
-                    <p>[Filler text about target audience for this activity. Content will be updated with specific target audience details for the activity.]</p>
+                    <p>This activity is designed for oncologists, pulmonologists, thoracic surgeons, and other healthcare professionals involved in the multidisciplinary care of patients with early-stage non-small cell lung cancer (NSCLC). Medical oncology fellows, pulmonology fellows, and thoracic surgery residents would also benefit from this educational program.</p>
+                  </div>
+                ) : activity.id === 2 ? (
+                  <div>
+                    <p>This activity is intended for hematologists, hematology/oncology physicians, and other healthcare professionals treating patients with paroxysmal nocturnal hemoglobinuria (PNH). Fellows in hematology/oncology and internal medicine physicians with an interest in hematologic disorders will also find this content valuable.</p>
+                  </div>
+                ) : activity.id === 3 ? (
+                  <div>
+                    <p>This educational program targets medical oncologists, breast cancer specialists, and healthcare professionals involved in the treatment of HR+/HER2- breast cancer. Medical oncology fellows and oncology nurses with advanced practice roles in breast cancer care will also benefit from this activity.</p>
+                  </div>
+                ) : activity.id === 4 ? (
+                  <div>
+                    <p>Designed for medical oncologists, breast cancer specialists, and multidisciplinary team members caring for patients with HR+ HER2-expressing metastatic breast cancer. Medical oncology fellows and advanced practice providers in oncology will find this content highly relevant.</p>
+                  </div>
+                ) : activity.id === 5 ? (
+                  <div>
+                    <p>This activity is tailored for hematologists, hematology/oncology physicians, and healthcare professionals managing patients with chronic myeloid leukemia (CML). Fellows in hematology/oncology and advanced practice providers in hematology will also benefit from this educational program.</p>
+                  </div>
+                ) : activity.id === 6 ? (
+                  <div>
+                    <p>Intended for hematologists, hematology/oncology physicians, and healthcare professionals treating patients with relapsed or refractory follicular lymphoma. Medical oncology fellows and advanced practice providers specializing in lymphoid malignancies will find this content valuable.</p>
+                  </div>
+                ) : activity.id === 7 ? (
+                  <div>
+                    <p>This program targets hematologists, hematology/oncology physicians, and community-based practitioners managing patients with chronic lymphocytic leukemia (CLL), small lymphocytic lymphoma (SLL), and mantle cell lymphoma (MCL). Advanced practice providers and fellows in hematology/oncology will also benefit.</p>
+                  </div>
+                ) : activity.id === 8 ? (
+                  <div>
+                    <p>Designed for medical oncologists, breast cancer specialists, and community practice physicians treating patients with high-risk early breast cancer. Medical oncology fellows, oncology nurses, and advanced practice providers in breast cancer care will find this educational content highly relevant.</p>
                   </div>
                 ) : (
                   <div>
-                    <p>[Target audience content here describing who should attend this activity and what professional roles would benefit most.]</p>
+                    <p>This activity is intended for medical oncologists, pulmonologists, thoracic surgeons, and multidisciplinary team members involved in the care of patients with early-stage ALK-positive NSCLC. Medical oncology fellows and pulmonology fellows will also benefit from this comprehensive educational program.</p>
                   </div>
                 )}
               </div>
@@ -116,11 +144,39 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
               <div className="mt-4 text-gray-600">
                 {activity.id === 1 ? (
                   <div>
-                    <p>[Filler text describing the purpose and goals of this educational activity. Content will be updated with specific purpose and objectives.]</p>
+                    <p>This educational activity aims to optimize perioperative therapy approaches in early-stage NSCLC through a comprehensive multidisciplinary framework. The program will address current evidence, emerging therapies, and collaborative care strategies to improve patient outcomes and reduce recurrence risk.</p>
+                  </div>
+                ) : activity.id === 2 ? (
+                  <div>
+                    <p>To enhance clinical understanding and management of paroxysmal nocturnal hemoglobinuria (PNH) with a focus on novel oral therapeutic options. This activity will address diagnostic challenges, treatment optimization, and patient outcome improvements through evidence-based approaches.</p>
+                  </div>
+                ) : activity.id === 3 ? (
+                  <div>
+                    <p>To advance clinical knowledge and practical application of TROP2 antibody-drug conjugates in HR+/HER2- breast cancer treatment. The program focuses on optimizing patient selection, managing treatment sequences, and improving clinical outcomes through evidence-based therapeutic strategies.</p>
+                  </div>
+                ) : activity.id === 4 ? (
+                  <div>
+                    <p>To redefine treatment paradigms across the spectrum of HR+ HER2-expressing metastatic breast cancer, with emphasis on precision medicine approaches, biomarker utilization, and personalized therapeutic strategies to optimize patient care and outcomes.</p>
+                  </div>
+                ) : activity.id === 5 ? (
+                  <div>
+                    <p>To explore novel therapeutic approaches for newly diagnosed Ph+ CML-CP patients, focusing on treatment optimization while balancing efficacy with patient quality of life goals. The program emphasizes personalized treatment strategies and long-term management considerations.</p>
+                  </div>
+                ) : activity.id === 6 ? (
+                  <div>
+                    <p>To examine the evolving role and clinical applications of bispecific antibody therapy in relapsed or refractory follicular lymphoma. This educational program focuses on treatment selection, sequencing strategies, and optimizing patient outcomes through innovative therapeutic approaches.</p>
+                  </div>
+                ) : activity.id === 7 ? (
+                  <div>
+                    <p>To provide practice-changing insights and strategies for community-based care of patients with CLL, SLL, and MCL. The program emphasizes translating cutting-edge research into practical clinical applications for improved patient management and outcomes.</p>
+                  </div>
+                ) : activity.id === 8 ? (
+                  <div>
+                    <p>To explore treatment intensification strategies with CDK 4/6 inhibitors in adjuvant therapy for HR+, HER2-, high-risk early breast cancer. The program focuses on community practice perspectives, patient selection criteria, and optimizing treatment outcomes through evidence-based approaches.</p>
                   </div>
                 ) : (
                   <div>
-                    <p>[Purpose content here describing the goals and objectives of this educational activity.]</p>
+                    <p>To advance ALK inhibition strategies in early-stage NSCLC through integration of biomarker-driven therapies. This educational activity focuses on reducing recurrence risk post-resection and optimizing patient outcomes through precision medicine approaches and multidisciplinary care coordination.</p>
                   </div>
                 )}
               </div>
@@ -142,11 +198,39 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
               <div className="mt-4 text-gray-600">
                 {activity.id === 1 ? (
                   <div>
-                    <p>[Filler text providing an overview of the activity content, format, and key topics to be covered. Content will be updated with specific activity details.]</p>
+                    <p>This comprehensive program features expert presentations on perioperative therapy optimization, including neoadjuvant and adjuvant approaches in early-stage NSCLC. The activity includes interactive case discussions, mini-focus group sessions, and multidisciplinary perspectives from oncology, surgery, and pulmonology specialists. Participants will engage in evidence-based discussions on treatment sequencing, biomarker utilization, and collaborative care strategies.</p>
+                  </div>
+                ) : activity.id === 2 ? (
+                  <div>
+                    <p>This educational program provides comprehensive coverage of PNH diagnosis, management, and emerging oral therapeutics. The format includes expert presentations, case-based discussions, and practical approaches to treatment optimization. Participants will learn about novel therapeutic mechanisms, patient monitoring strategies, and outcome optimization techniques through interactive educational methodologies.</p>
+                  </div>
+                ) : activity.id === 3 ? (
+                  <div>
+                    <p>An in-depth exploration of TROP2 antibody-drug conjugates in HR+/HER2- breast cancer treatment. The program features expert presentations, clinical case discussions, and evidence-based treatment strategies. Participants will learn about patient selection criteria, treatment sequencing, toxicity management, and outcomes optimization through interactive educational formats.</p>
+                  </div>
+                ) : activity.id === 4 ? (
+                  <div>
+                    <p>This program provides comprehensive coverage of treatment approaches across the spectrum of HR+ HER2-expressing metastatic breast cancer. The educational format includes expert presentations, case-based learning, and interactive discussions on precision medicine approaches, biomarker utilization, and personalized treatment strategies for optimal patient care.</p>
+                  </div>
+                ) : activity.id === 5 ? (
+                  <div>
+                    <p>A comprehensive examination of novel treatments for newly diagnosed Ph+ CML-CP patients. The program features expert presentations, interactive case discussions, and practical approaches to treatment selection while maintaining patient quality of life. Participants will learn about treatment optimization strategies, monitoring approaches, and long-term management considerations.</p>
+                  </div>
+                ) : activity.id === 6 ? (
+                  <div>
+                    <p>This educational program explores the evolving landscape of bispecific antibody therapy in relapsed or refractory follicular lymphoma. The format includes expert presentations, case-based discussions, and interactive exploration of treatment selection criteria, sequencing strategies, and patient outcome optimization through innovative therapeutic approaches.</p>
+                  </div>
+                ) : activity.id === 7 ? (
+                  <div>
+                    <p>A practice-focused program designed for community care settings, featuring the latest strategies in CLL, SLL, and MCL management. The educational format includes expert presentations, case-based learning, and practical implementation strategies. Participants will learn about translating research advances into community practice for improved patient outcomes.</p>
+                  </div>
+                ) : activity.id === 8 ? (
+                  <div>
+                    <p>This program provides community practice perspectives on treatment intensification with CDK 4/6 inhibitors in adjuvant HR+, HER2-, high-risk early breast cancer. The educational format includes expert presentations, case discussions, and practical approaches to patient selection, treatment optimization, and outcome monitoring in community practice settings.</p>
                   </div>
                 ) : (
                   <div>
-                    <p>[Activity overview content here providing details about the activity format, key topics, and what participants can expect.]</p>
+                    <p>A comprehensive program focusing on advancing ALK inhibition into early-stage NSCLC through biomarker-driven approaches. The educational format includes expert presentations, case-based discussions, and interactive exploration of precision medicine strategies to reduce recurrence risk post-resection and optimize patient outcomes through multidisciplinary care coordination.</p>
                   </div>
                 )}
               </div>

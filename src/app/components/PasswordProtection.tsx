@@ -41,12 +41,12 @@ export default function PasswordProtection({ children }: PasswordProtectionProps
       const data = await response.json();
 
       if (data.success) {
-        setIsAuthenticated(true);
+      setIsAuthenticated(true);
         // Store authentication state for current session
         sessionStorage.setItem('axis-authenticated', 'true');
-      } else {
-        setError('Incorrect password. Please try again.');
-        setPassword('');
+    } else {
+      setError('Incorrect password. Please try again.');
+      setPassword('');
       }
     } catch (error) {
       setError('Connection error. Please try again.');

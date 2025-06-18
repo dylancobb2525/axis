@@ -63,12 +63,12 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                 <span className="font-medium">{activity.chairperson}</span> (Chairperson)
               </p>
             </div>
-            <button
-              onClick={onClose}
+        <button
+          onClick={onClose}
               className="text-white hover:text-gray-200 text-2xl font-bold ml-4"
-            >
-              ×
-            </button>
+        >
+          ×
+        </button>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
               {expandedSections.programSchedule && (
                 <div className="mt-4 text-gray-600">
                   {activity.id === 6 ? (
-                    <div>
+            <div>
                       <ul className="list-disc ml-6 space-y-1">
                         <li>Introduction</li>
                         <li>Expanding Bispecific Antibody Therapy Through Community-Based Hematology/Oncology Clinicians and Care Teams</li>
@@ -103,7 +103,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                         <li>Audience Q&A</li>
                       </ul>
                       <p className="text-sm italic mt-2">*Subject to change</p>
-                    </div>
+            </div>
                   ) : activity.id === 7 ? (
                     <div>
                       <ul className="list-disc ml-6 space-y-1">
@@ -115,7 +115,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                         <li>Activity Conclusion and Q&A</li>
                       </ul>
                       <p className="text-sm italic mt-2">*Subject to change</p>
-                    </div>
+          </div>
                   ) : activity.id === 8 ? (
                     <div>
                       <ul className="list-disc ml-6 space-y-1">
@@ -128,7 +128,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                         <li>Activity Conclusion and Q&A</li>
                       </ul>
                       <p className="text-sm italic mt-2">*Subject to change</p>
-                    </div>
+        </div>
                   ) : activity.id === 9 ? (
                     <div>
                       <ul className="list-disc ml-6 space-y-1">
@@ -182,7 +182,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                   <div className="space-y-6">
                     <p>In accordance with the ACCME Standards for Integrity and Independence, Global Learning Collaborative (GLC) requires that individuals in a position to control the content of an educational activity disclose all relevant financial relationships with any ineligible company. GLC mitigates all conflicts of interest to ensure independence, objectivity, balance, and scientific rigor in all its educational programs.</p>
                     
-                    <div>
+                  <div>
                       <p className="font-semibold text-gray-800 mb-2">Chair:</p>
                       <div className="space-y-1">
                         <p className="font-medium">Heather Wakelee, MD, FASCO</p>
@@ -887,7 +887,7 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     <div className="space-y-3">
                       <div className="flex items-center">
                         <img src="/logos/pa.png" alt="PA Logo" className="h-12 mr-3" />
-                        <div>
+                  <div>
                           <p className="font-medium">PAs, IF LIVE (DO NOT INCLUDE THIS TEXT)</p>
                           <p className="text-sm">Global Learning Collaborative (GLC) has been authorized by the American Academy of PAs (AAPA) to award AAPA Category 1 CME credit(s) for activities planned in accordance with AAPA CME Criteria. This activity is designated for 1.0 AAPA Category 1 CME credit(s). PAs should claim only the credit commensurate with the extent of their participation in the activity.</p>
                         </div>
@@ -1148,13 +1148,13 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     <p>This activity is supported by independent educational grants from Bristol Myers Squibb and Merck Sharp & Dohme LLC.</p>
                   </div>
                 ) : activity.id === 2 || activity.id === 3 ? (
-                  <div>
+                    <div>
                     <p>This activity is supported by independent educational grants from Bristol Myers Squibb and Merck Sharp & Dohme LLC.</p>
-                  </div>
+                    </div>
                 ) : activity.id === 3 ? (
-                  <div>
+                    <div>
                     <p>This activity is supported by independent educational grants from Bristol Myers Squibb and Merck Sharp & Dohme LLC.</p>
-                  </div>
+                    </div>
                 ) : activity.id === 4 || activity.id === 5 ? (
                   <div>
                     <p>This activity is supported by an educational grant from Novartis Pharmaceuticals</p>
@@ -1292,17 +1292,17 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
 
           {/* Additional */}
           <div className="border-b pb-4">
-            <button
+              <button
               onClick={() => toggleSection('additional')}
-              className="w-full flex justify-between items-center text-left"
-            >
+                className="w-full flex justify-between items-center text-left"
+              >
               <h3 className="text-lg font-semibold text-gray-800">Additional</h3>
-              <span className="text-gray-400">
+                <span className="text-gray-400">
                 {expandedSections.additional ? '−' : '+'}
-              </span>
-            </button>
+                </span>
+              </button>
             {expandedSections.additional && (
-              <div className="mt-4 text-gray-600">
+                <div className="mt-4 text-gray-600">
                 {activity.id === 1 ? (
                   <div>
                     <p className="font-semibold mb-2 text-red-600">AXIS Contact Information</p>
@@ -1355,11 +1355,11 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                 ) : (
                   <div>
                     <p>[Additional information for other activities]</p>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
             )}
-          </div>
+        </div>
 
         </div>
         </div>

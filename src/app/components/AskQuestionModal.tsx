@@ -191,14 +191,14 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Event ID(s) <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  name="eventIds"
+                  <input
+                    type="text"
+                    name="eventIds"
                   placeholder="Event ID(s)"
                   defaultValue={activityCode || ''}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  required
-                />
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    required
+                  />
                 <ValidationError 
                   prefix="Event IDs" 
                   field="eventIds"
@@ -226,21 +226,21 @@ export default function AskQuestionModal({ isOpen, onClose, activityCode }: AskQ
               </div>
 
               <div className="flex gap-3 pt-4">
-                <button
-                  type="button"
-                  onClick={handleClose}
+              <button
+                type="button"
+                onClick={handleClose}
                   className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
+              >
+                Cancel
+              </button>
+              <button
                   type="submit"
                   disabled={state.submitting}
                   className="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50"
-                >
+              >
                   {state.submitting ? 'Sending...' : 'Send Question'}
-                </button>
-              </div>
+              </button>
+            </div>
             </form>
           </div>
         )}

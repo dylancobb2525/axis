@@ -231,7 +231,7 @@ export default function Home() {
           {/* First Row of Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {activities.slice(0, 3).map((activity) => (
-              <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
+              <div key={activity.id} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
                 <div className="relative">
                   <img 
                     src={activity.image} 
@@ -302,7 +302,7 @@ export default function Home() {
           {/* Second Row of Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {activities.slice(3, 6).map((activity) => (
-              <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
+              <div key={activity.id} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
                 <div className="relative">
                   <img 
                     src={activity.image} 
@@ -373,7 +373,7 @@ export default function Home() {
           {/* Third Row of Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {activities.slice(6, 9).map((activity) => (
-              <div key={activity.id} className="bg-white rounded-lg shadow-sm hover:shadow-xl overflow-hidden flex flex-col h-full transition-shadow duration-300 cursor-pointer">
+              <div key={activity.id} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
                 <div className="relative">
                   <img 
                     src={activity.image} 
@@ -524,7 +524,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                AXIS is a Jointly Accredited Provider
+                AXIS IS a Jointly Accredited Provider
               </h2>
               <p className="text-gray-600 mb-6">
                 As a Joint Accreditation provider, AXIS promotes interprofessional continuing education (IPCE) activities specifically designed to improve interprofessional collaborative practice (IPCP) in health care delivery.
@@ -557,6 +557,78 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-orange-400 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 bg-teal-400 rounded-full blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-blue-400 rounded-full blur-xl animate-pulse delay-2000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4 animate-fadeIn">
+              What Are Our Learners Saying?
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-teal-400 mx-auto rounded-full"></div>
+          </div>
+          
+                     {/* Static Testimonials Container */}
+           <div className="relative bg-gradient-to-r from-white via-gray-50 to-white rounded-xl shadow-2xl py-8 px-6">
+             {/* Glowing border effect */}
+             <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-teal-400 to-orange-400 rounded-xl opacity-20 animate-pulse"></div>
+             
+             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+               <div className="bg-white rounded-lg p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500">
+                 <blockquote className="text-gray-700 text-base font-light italic leading-snug mb-3">
+                   "The faculty presenter was great and the feedback from the team has been very positive."
+                 </blockquote>
+                 <p className="text-blue-600 font-semibold text-sm tracking-wide">
+                   – St. Luke's Mountain States Tumor Institute, Boise, ID
+                 </p>
+               </div>
+               
+               <div className="bg-white rounded-lg p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-teal-500">
+                 <blockquote className="text-gray-700 text-base font-light italic leading-snug mb-3">
+                   "Thank you for the enlightening talk. All my questions were answered."
+                 </blockquote>
+                 <p className="text-blue-600 font-semibold text-sm tracking-wide">
+                   – John H. Stroger, Jr. Hospital of Cook County, Chicago, IL
+                 </p>
+               </div>
+               
+               <div className="bg-white rounded-lg p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-blue-500">
+                 <blockquote className="text-gray-700 text-base font-light italic leading-snug mb-3">
+                   "The speaker was fabulous, very informative, and knowledgeable."
+                 </blockquote>
+                 <p className="text-blue-600 font-semibold text-sm tracking-wide">
+                   – UMass Memorial Health Cancer Center, Worcester, MA
+                 </p>
+               </div>
+               
+               <div className="bg-white rounded-lg p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-green-500">
+                 <blockquote className="text-gray-700 text-base font-light italic leading-snug mb-3">
+                   "We enjoyed the program very much. We appreciate the high-quality programs that AXIS consistently provides to our nurses, doctors, and other oncology professionals!"
+                 </blockquote>
+                 <p className="text-blue-600 font-semibold text-sm tracking-wide">
+                   – Northeast Georgia Medical Center, Gainesville, GA
+                 </p>
+               </div>
+               
+               <div className="bg-white rounded-lg p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-purple-500">
+                 <blockquote className="text-gray-700 text-base font-light italic leading-snug mb-3">
+                   "This was a very interesting activity with great information! I enjoyed being able to do it in my satellite location."
+                 </blockquote>
+                 <p className="text-blue-600 font-semibold text-sm tracking-wide">
+                   – Northeast Tennessee ONS Chapter, Johnson City, TN
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
       </section>
 
       {/* CTA Section */}

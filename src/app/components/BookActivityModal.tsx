@@ -244,21 +244,21 @@ export default function BookActivityModal({ isOpen, onClose, activityCode }: Boo
               </div>
 
               <div className="flex gap-3 pt-4">
-                <button
-                  type="button"
-                  onClick={handleClose}
+              <button
+                type="button"
+                onClick={handleClose}
                   className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
+              >
+                Cancel
+              </button>
+              <button
                   type="submit"
                   disabled={state.submitting}
                   className="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50"
                 >
                   {state.submitting ? 'Sending...' : 'Book Activity'}
-                </button>
-              </div>
+              </button>
+            </div>
             </form>
           </div>
         )}

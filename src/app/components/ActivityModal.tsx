@@ -76,8 +76,8 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
         <div className="flex-1 overflow-y-auto">
         <div className="p-6 space-y-4">
           
-          {/* Program Schedule - Only for activities 4, 5, 6, 7 and 8 */}
-          {(activity.id === 4 || activity.id === 5 || activity.id === 6 || activity.id === 7 || activity.id === 8) && (
+          {/* Program Schedule - Only for activities 4, 5, 6, 7, 8 and 9 */}
+          {(activity.id === 4 || activity.id === 5 || activity.id === 6 || activity.id === 7 || activity.id === 8 || activity.id === 9) && (
             <div className="border-b pb-4">
               <button
                 onClick={() => toggleSection('programSchedule')}
@@ -126,6 +126,22 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                         <li>Engaging the patient to maximize adherence and persistence</li>
                         <li>Practical Application Case-Based Learning Lab</li>
                         <li>Activity Conclusion and Q&A</li>
+                      </ul>
+                      <p className="text-sm italic mt-2">*Subject to change</p>
+                    </div>
+                  ) : activity.id === 9 ? (
+                    <div>
+                      <ul className="list-disc ml-6 space-y-1">
+                        <li>Pre-assessment questions</li>
+                        <li>Overview of key oncogenic drivers of NSCLC</li>
+                        <li>Identifying ALK-positive patients at high risk for recurrence in the community setting</li>
+                        <li>Rationale to improve disease control in resected ALK-positive NSCLC</li>
+                        <li>Emerging directions in early stage ALK-positive NSCLC</li>
+                        <li>Skills and interprofessional team-based strategies needed to adopt adjuvant targeted therapies in the community setting</li>
+                        <li>Addressing the absence of mature OS data for targeted therapies in the adjuvant setting</li>
+                        <li>Case-Based Learning Lab</li>
+                        <li>Conclusion/Q&A/Discussion</li>
+                        <li>Post-assessment questions</li>
                       </ul>
                       <p className="text-sm italic mt-2">*Subject to change</p>
                     </div>
@@ -537,6 +553,42 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     
                     <p>The directors, planners, managers, peer reviewers, and relevant staff reported the following financial relationships they have with any ineligible company of any amount during the past 24 months: Linda Gracie-King, MS: Jocelyn Timko, BS; Marilyn L. Haas-Haseman, PhD, RN, CNS, ANP-BC; Melissa Duffy, PA-C; and Adrienne N. Nedved, PharmD, MPA, BCOP, hereby state that they do not have any financial relationships or relationships with any ineligible company of in any amount during the past 24 months. Robert Mocharnuk, MD, reports a financial interest/relationship or affiliation in the form of Common stock: Merck during the past 24 months.</p>
                   </div>
+                ) : activity.id === 9 ? (
+                  <div className="space-y-6">
+                    <p>AXIS Medical Education requires faculty, instructors, authors, planners, directors, managers, peer reviewers, and other individuals who are in a position to control the content of this activity to disclose all personal financial relationships they may have in the past 24 months with ineligible companies. An ineligible entity is any organization whose primary business is producing, marketing, selling, re-selling, or distributing healthcare products used by or on patients. All relevant financial relationships are identified and mitigated prior to initiation of the planning phase for an activity.</p>
+                    
+                    <p>AXIS has mitigated and disclosed to learners all relevant financial relationships disclosed by staff, planners, faculty/authors, peer reviewers, or others in control of content for this activity. Disclosure of a relationship is not intended to suggest or condone bias in any presentation but is made to provide participants with information that might be of potential importance to their evaluation of a presentation or activity. Disclosure information for faculty, authors, course directors, planners, peer reviewers, and/or relevant staff is provided with this activity.</p>
+                    
+                    <p>The faculty reported the following relevant financial relationships or relationships they have with ineligible companies of any amount during the past 24 months:</p>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-medium">Mark A. Socinski, MD reported a financial interest/relationship or affiliation in the form of</p>
+                        <p><span className="font-medium">Speaker:</span> AstraZeneca Pharmaceuticals LP, Jazz Pharmaceuticals plc, Janssen Pharmaceuticals, Genentech, Inc.</p>
+                        <p><span className="font-medium">Contracted research:</span> Cullinan, Spectrum Pharmaceuticals, Inc., AstraZeneca Pharmaceuticals LP.</p>
+                      </div>
+                      
+                      <div>
+                        <p className="font-medium">Alice T. Shaw, MD, PhD, reported a financial interest/relationship or affiliation in the form of</p>
+                        <p><span className="font-medium">Consultant:</span> Pfizer, Inc., Nuvalent, Triana & Tango.</p>
+                        <p><span className="font-medium">Serve(d) as an employee, for an ineligible company (e.g., pharmaceutical company):</span> Novartis (ended).</p>
+                      </div>
+                      
+                      <div>
+                        <p className="font-medium">Joshua E. Reuss, MD reported a financial interest/relationship or affiliation in the form of</p>
+                        <p><span className="font-medium">Advisor:</span> AstraZeneca Pharmaceuticals LP, Bristol-Myers Squibb Company, Arcus, AbbVie, Daiichi Sankyo Company, Ltd., Catalym, Seagen, Gilead, Janssen Pharmaceuticals, Inc., Novocure, Regeneron Pharmaceuticals, Inc., Summit Therapeutics & Pfizer, Inc.</p>
+                        <p><span className="font-medium">Received research grant from (Institution):</span> Genentech/Roche, Verastem Inc., Nuvalent, Exelixis, Inc. & Arcus.</p>
+                      </div>
+                      
+                      <div>
+                        <p className="font-medium">Karen L. Reckamp, MD, MS, reported a financial interest/relationship or affiliation in the form of</p>
+                        <p><span className="font-medium">Consultant:</span> Amgen, Inc., AstraZeneca Pharmaceuticals LP, Blueprint Medicines, Daiichi-Sankyo, Inc., EMD Serono, Inc., Genentech, Inc., GlaxoSmithKline, Janssen Oncology, Lilly USA, Mirati Therapeutics, & Novucare.</p>
+                        <p><span className="font-medium">Research funding to institution:</span> Blueprint Medicines, Calithera Biosciences Inc., Daiichi-Sankyo, Inc., Elevation Oncology, Genentech, Inc. & Janssen Oncology.</p>
+                      </div>
+                    </div>
+                    
+                    <p>The directors, planners, managers, peer reviewers, and relevant staff reported the following financial relationships they have with any ineligible company of any amount during the past 24 months: Linda Gracie-King, MS; Bing-E Xu, PhD; Marilyn L. Haas-Haseman, PhD, RN, CNS, ANP-BC; Melissa Duffy, PA-C; Adrienne N. Nedved, PharmD, MPA, BCOP; and Dee Morgillo, MEd, MT(ASCP), CHCP, hereby state that they do not have any financial relationships or relationships with any ineligible company of in any amount during the past 24 months. Robert Mocharnuk, MD, reports a financial interest/relationship or affiliation in the form of Common stock: Merck during the past 24 months.</p>
+                  </div>
                 ) : (
                   <div>
                     <p>[Disclosure content for other activities]</p>
@@ -627,6 +679,16 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                       <li>Employ collaborative team-based communication strategies to foster patient engagement, adherence, and persistence of therapy</li>
                     </ul>
                   </div>
+                ) : activity.id === 9 ? (
+                  <div>
+                    <p className="mb-3">After participating in this educational activity, participants should be better able to:</p>
+                    <ul className="list-disc ml-6 space-y-2">
+                      <li>Identify ALK-positive patients with early-stage NSCLC at high risk for recurrence post resection across the interprofessional care team</li>
+                      <li>Incorporate therapeutic strategies for biomarker-driven treatment of early-stage patients with ALK-positive NSCLC post resection</li>
+                      <li>Develop clinical practice skills and team-based strategies to adopt use of targeted therapies in the adjuvant setting in patients with early-stage NSCLC</li>
+                      <li>Recognize the clinical value of oncology-relevant endpoints beyond overall survival in patients with early-stage NSCLC post resection</li>
+                    </ul>
+                  </div>
                 ) : (
                   <div>
                     <p>[Learning objectives for other activities]</p>
@@ -676,6 +738,10 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                 ) : activity.id === 8 ? (
                   <div>
                     <p>This educational activity is designed for community-based medical oncologists, breast oncologists, and advanced practice nurses, physician assistants, and pharmacists.</p>
+                  </div>
+                ) : activity.id === 9 ? (
+                  <div>
+                    <p>Community-based medical oncologists, pathologists, lab professionals, advanced practitioners and other HCPs who are part of the interprofessional care team involved in the treatment/management of ALK-positive NSCLC.</p>
                   </div>
                 ) : (
                   <div>
@@ -760,6 +826,18 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     </div>
                   </div>
                 ) : activity.id === 8 ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <img src="/logos/jointac.png" alt="Joint Accreditation" className="h-12 mr-3" />
+                      <p className="text-sm">In support of improving patient care, AXIS Medical Education is jointly accredited by the Accreditation Council for Continuing Medical Education (ACCME), the Accreditation Council for Pharmacy Education (ACPE), and the American Nurses Credentialing Center (ANCC), to provide continuing education for the healthcare team.</p>
+                    </div>
+                    
+                    <div className="flex items-center">
+                      <img src="/logos/ipc.png" alt="IPCE Credit" className="h-12 mr-3" />
+                      <p className="text-sm">This activity was planned by and for the healthcare team, and learners will receive 1.0 Interprofessional Continuing Education (IPCE) credit for learning and change.</p>
+                    </div>
+                  </div>
+                ) : activity.id === 9 ? (
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <img src="/logos/jointac.png" alt="Joint Accreditation" className="h-12 mr-3" />
@@ -961,6 +1039,36 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                       <p className="text-sm italic">Learners are advised that accredited status does not imply endorsement by the provider or ANCC of any commercial products displayed in conjunction with an activity.</p>
                     </div>
                   </div>
+                ) : activity.id === 9 ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center mb-3">
+                      <img src="/logos/pa.png" alt="PA Logo" className="h-12 mr-3" />
+                      <div>
+                        <p>AXIS Medical Education designates this live activity for a maximum of 1.0 <em>AMA PRA Category 1 Credit(s)™</em></p>
+                        <p className="text-sm">Physicians should claim only the credit commensurate with the extent of their participation in the activity.</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <p>AXIS Medical Education has been authorized by the American Academy of PAs (AAPA) to award AAPA Category 1 CME credit for activities planned in accordance with AAPA CME Criteria. This activity is designated for 1.0 AAPA Category 1 CME credits. Approval is valid until 3/31/2025. PAs should only claim credit commensurate with the extent of their participation.</p>
+                    </div>
+                    
+                    <div>
+                      <p className="font-medium mb-2">Credit Designation for Pharmacists</p>
+                      <p>This application-based activity is approved for 1.0 contact hour of continuing pharmacy education JA4008106-0000-24-069-L01-P.</p>
+                    </div>
+                    
+                    <div>
+                      <p className="font-medium mb-2">Credit Designation for Nursing</p>
+                      <p>AXIS Medical Education designates this continuing nursing education activity for 1.0 contact hour.</p>
+                      <p className="text-sm italic">Learners are advised that accredited status does not imply endorsement by the provider or ANCC of any commercial products displayed in conjunction with an activity.</p>
+                    </div>
+                    
+                    <div>
+                      <p className="font-medium mb-2">Credit Designation for Laboratory Professionals</p>
+                      <p>This continuing medical laboratory education activity is recognized by the American Society for Clinical Pathology as meeting the criteria for 1.0 CMLE credit. ASCP CMLE credits are acceptable to meet the continuing education requirement for the ASCP Board of Registry Certification Maintenance Program.</p>
+                    </div>
+                  </div>
                 ) : (
                   <div>
                     <p>[Credit designation for other activities]</p>
@@ -1006,6 +1114,10 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     <img src="/logos/axis.png" alt="AXIS Medical Education" className="h-12" />
                   </div>
                 ) : activity.id === 8 ? (
+                  <div>
+                    <img src="/logos/axis.png" alt="AXIS Medical Education" className="h-12" />
+                  </div>
+                ) : activity.id === 9 ? (
                   <div>
                     <img src="/logos/axis.png" alt="AXIS Medical Education" className="h-12" />
                   </div>
@@ -1058,6 +1170,10 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                 ) : activity.id === 8 ? (
                   <div>
                     <p>This activity is supported by an educational grant from Lilly.</p>
+                  </div>
+                ) : activity.id === 9 ? (
+                  <div>
+                    <p>Supported by an educational grant from Genentech, a member of the Roche Group.</p>
                   </div>
                 ) : (
                   <div>
@@ -1151,6 +1267,20 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                       </div>
                     </div>
                   </div>
+                ) : activity.id === 9 ? (
+                  <div>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-semibold mb-2">Disclaimer</p>
+                        <p className="text-sm">Participants have an implied responsibility to use the newly acquired information to enhance patient outcomes and their own professional development. The information presented in this activity is not meant to serve as a guideline for patient management. Any procedures, medications, or other courses of diagnosis or treatment discussed or suggested in this activity should not be used by clinicians without evaluation of their patient's conditions and possible contraindications and/or dangers in use, review of any applicable manufacturer's product information, and comparison with recommendations of other authorities.</p>
+                      </div>
+                      
+                      <div>
+                        <p className="font-semibold mb-2">Disclosure of Unlabeled Use</p>
+                        <p className="text-sm">This educational activity may contain discussion of agents that are not approved for use by the FDA and/or investigational ("off-label") uses of agents that are approved by the FDA. The planners of this activity do not recommend the use of any agent outside of its labeled indications. The opinions expressed in the educational activity are those of the faculty and do not necessarily represent the views of the planners. Please refer to the official prescribing information for each agent for information on its approved indications, contraindications, warnings, and other, related information.</p>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div>
                     <p>[Disclaimer for other activities]</p>
@@ -1209,6 +1339,13 @@ export default function ActivityModal({ isOpen, onClose, activity, onBookActivit
                     <p className="font-medium">There is no fee for this educational activity.</p>
                   </div>
                 ) : activity.id === 8 ? (
+                  <div>
+                    <p className="font-semibold mb-2 text-red-600">AXIS Contact Information</p>
+                    <p className="mb-4">For information about the certification of this activity, please contact AXIS at <a href="mailto:info@axismeded.com" className="text-blue-600 underline">info@axismeded.com</a></p>
+                    
+                    <p className="font-medium">There is no fee for this educational activity.</p>
+                  </div>
+                ) : activity.id === 9 ? (
                   <div>
                     <p className="font-semibold mb-2 text-red-600">AXIS Contact Information</p>
                     <p className="mb-4">For information about the certification of this activity, please contact AXIS at <a href="mailto:info@axismeded.com" className="text-blue-600 underline">info@axismeded.com</a></p>
